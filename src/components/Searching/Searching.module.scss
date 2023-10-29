@@ -1,6 +1,7 @@
 @use "/src/_mixin" as mix;
 
 .searching {
+
     margin: 30px auto;
   
     &__input {
@@ -19,7 +20,7 @@
     &__submit {
       width: 100px;
       height: 40px;
-      margin: 0 10px;
+      margin: 20px;
       @include mix.button;
       &:focus {
         outline: none;

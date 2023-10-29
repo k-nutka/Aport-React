@@ -1,30 +1,10 @@
-import React, {useEffect, useState} from "react";
+
 import mainDog from "./images/mainDog.png";
 import './App.scss';
 import Searching from './components/Searching/Searching';
-import axios from 'axios'
+
 
 function App() {
-
-  const [data, setData] = useState([])
-
-  const apiKey =
-  "live_dJsh3SiYwCekpmIVtVIfO8z0lYo5PabuNpCyPDF71vAPmfofuJOI0uJnCvL6Serf";
-  
-
-   useEffect(()=>{
-    axios.get('https://api.thedogapi.com/v1/breeds',
-    {
-      headers: {
-        "x-api-key": apiKey,
-      },
-
-    }).then(response => setData(response.data))
-    .catch(error => console.log(error))
-
-   },[])
-
-   console.log(data)
 
 
  
