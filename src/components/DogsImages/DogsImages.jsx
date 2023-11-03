@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./DogsImages.module.scss";
 
-const DogsImages = (props) => {
+const DogsImages = ({ dogs, selectDog }) => {
   return (
     <div className={styles.sample_tiles}>
-      {props.dogs.map((dog) => (
+      {dogs.map((dog) => (
         <img
           className={styles.dog_image}
           src={dog.image.url}
           key={dog.id}
+          onClick={() => selectDog(dog.name)}
         ></img>
       ))}
     </div>

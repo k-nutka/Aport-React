@@ -1,0 +1,92 @@
+@use "/src/_mixin" as mix;
+
+.info {
+  background-color: rgb(247, 226, 201);
+  display: flex;
+  width: 100vw;
+
+
+  flex-direction: column;
+  align-items: center;
+
+  &__back {
+    @include mix.button;
+    margin: 30px auto;
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+  }
+  &__card {
+    display: flex;
+    width: 50vw;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 5px solid #320d12;
+
+    margin-top: 100px;
+    overflow: hidden;
+    font-size: 40px;
+    text-transform: uppercase;
+
+    .breed,
+    .breedFor,
+    .breedGroup,
+    .lifeSpan,
+    .temperament {
+      padding: 10px;
+      color: rgb(24, 10, 2);
+    }
+
+    p,
+    .list {
+      text-transform: lowercase;
+    }
+    .list {
+      margin-bottom: 15px;
+    }
+    .temperament__list {
+      margin-top: 15px;
+      list-style: none;
+    }
+
+    .breedName {
+      width: 100%;
+      padding: 10px;
+      background-color: #5a281e;
+      color: #f2ad8a;
+      font-size: 50px;
+      text-transform: uppercase;
+    }
+
+    .breedImage {
+      width: 100%;
+      background-color: #320d12;
+      
+
+      &__img {
+        object-fit: fill;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .breedFor {
+      width: 100%;
+      background-color: #863746;
+    }
+    .breedGroup {
+      width: 100%;
+      background-color: #b8555b;
+    }
+    .lifeSpan {
+      width: 100%;
+      background-color: #f18177;
+    }
+    .temperament {
+      width: 100%;
+      background-color: #f2ad8a;
+    }
+  }
+}

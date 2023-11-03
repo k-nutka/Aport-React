@@ -4,9 +4,11 @@ import mainDog from "./images/mainDog.png";
 import axios from "axios";
 import DogsImages from "./components/DogsImages/DogsImages";
 import DogsNames from "./components/DogsNames/DogsNames";
+import DogCard from "components/DogCard/DogCard";
 
 function App() {
   let [dogs, setDogs] = useState([]);
+  let [selectedDog, setSelectedDog] = useState(null);
 
   const apiKey =
     "live_dJsh3SiYwCekpmIVtVIfO8z0lYo5PabuNpCyPDF71vAPmfofuJOI0uJnCvL6Serf";
@@ -24,6 +26,15 @@ function App() {
       .catch((err) => console.log(err));
   }, []);
 
+  const selectDog = (dogName) => {
+    const dog = dogs.find((dog) => dog.name === dogName);
+   setSelectedDog(dog);
+  };
+
+  // const removeSelectedDog = () => {
+  //   setSelectedDog(null);
+  // }
+
   return (
     <div className="App">
       <header className="header">
@@ -35,11 +46,19 @@ function App() {
           </p>
         </div>
       </header>
-      <div className="container">
-        {dogs.length > 0 && <DogsNames dogs={dogs} />}
-      </div>
-      <div className="images">
-        {dogs.length > 0 && <DogsImages dogs={dogs} />}
+      <div>
+        {selectedDog ? (
+          <DogCard selectedDog={selectedDog} removeSelectedDog={selectDog} />
+        ) : (
+          <React.Fragment>
+            <div className="container">
+              <DogsNames dogs={dogs} selectDog={selectDog} />
+            </div>
+            <div className="images">
+              <DogsImages dogs={dogs} selectDog={selectDog} />
+            </div>
+          </React.Fragment>
+        )}
       </div>
     </div>
   );
